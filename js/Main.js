@@ -5,7 +5,9 @@ function(){
         return ((this%n)+n)%n;
     };
 
-    var world = Physics();
+    // Insert physics here
+    // initPhysics();
+    // addTicker();
 
     var showingDialog = false;
 
@@ -36,6 +38,10 @@ function(){
     var boom = new Image();
     boom.src = "res/boombox.png";
     SpriteManager.addSprite( new Sprite(boom, {x:800, y:550, width:70, height:70}));
+
+    // addBody(controlCorgi);
+    // addGravity();
+
 
     window.corgiOne = paulCorgi;
     Camera.move(paulCorgi, canvas);

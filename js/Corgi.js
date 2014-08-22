@@ -80,7 +80,7 @@ Corgi.prototype.draw = function(ctx){
     ctx.drawImage(sprite, this.x - Camera.x, this.y - Camera.y , this.getWidth(),this.getHeight());
 
 Corgi.prototype.yo = function(){
-  var aud = document.getElementById("yo"); 
+  var aud = document.getElementById("yo");
   aud.play();
 }
 
