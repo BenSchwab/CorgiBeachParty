@@ -29,6 +29,7 @@ function Corgi(name, x,y, speed, texts){
     this.spritesR[2].src = "res/corgir2.png";
     this.speed = speed || 3;
     this.danceDig = false;
+    this.dangling = false;
 
 
 

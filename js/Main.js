@@ -5,7 +5,7 @@ function(){
         return ((this%n)+n)%n;
     };
 
-    var world = Physics();
+    //var world = Physics();
 
     var showingDialog = false;
     var musicPlaying = false;
@@ -23,7 +23,7 @@ function(){
 
     var corgiTwo = new Corgi("Nelson", 400,500, 5, ["Caches","Protobuffs.", "There is a book named after me. It's called 'Do, Nelson dream of electric sheep?' "]);
     var corgiThree = new Corgi("Yixin", 200,500, 5, ["Cool.  Cool. ", "Yo"]);
-    var corgiFour = new Corgi("Parthi", 100,500, 5, ["Do I even work here?","hmmm...I don't trust interpreted languages.... or cereal."]);
+    var corgiFour = new Corgi("Parthi", 100,500, 5, ["Do I even work on this team.?","hmmm...I don't trust interpreted languages.... or cereal."]);
 
     var corgiFive = new Corgi("Jingyu", 250,540, 5, ["Databases."]);
     var corgiSix = new Corgi("Ben", 50,500, 5, ["Thanks for a great summer!"]);
@@ -198,8 +198,32 @@ function(){
     var lastMouse;
     function onMouseMove(e){
         lastMouse = e;
+        point = transformPoint(e);
+        if(dragCorgi){
+            dragCorgi.x = point.x;
+            dragCorgi.y = point.y;
+        }
 
     }
+
+    function onMouseUp(){
+        if(dragCorgi){
+            dragCorgi.isDangling = false;
+        }
+        dragCorgi = null;
+    }
+
+    function onMouseDown() {
+        corgiSet.forEach(function(corgi){
+            if(corgi.contains(transformPoint(lastMouse))){
+                dragCorgi = corgi;
+                corgi.isDangling = true;
+            }
+
+        });
+    }
+
+    var dragCorgi;
 
 	// ctx.rect(20,20,150,100);
 	// ctx.fillStyle="red";
@@ -212,6 +236,8 @@ function(){
     window.addEventListener('keydown', onKeyDown);
     window.addEventListener('click', onClick);
     window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mouseup', onMouseUp);
 
 
     Camera.move(paulCorgi, canvas);

@@ -28,8 +28,8 @@
           <file leaf-file-name="Corgi.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/js/Corgi.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="2112" max-vertical-offset="3105">
-                  <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3120">
+                  <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
                   <folding />
                 </state>
               </provider>
@@ -75,8 +75,8 @@
           <file leaf-file-name="Main.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/js/Main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4401269" vertical-offset="1665" max-vertical-offset="3555">
-                  <caret line="148" column="9" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
+                <state vertical-scroll-proportion="0.57176846" vertical-offset="2609" max-vertical-offset="3960">
+                  <caret line="222" column="11" selection-start-line="222" selection-start-column="11" selection-end-line="222" selection-end-column="11" />
                   <folding />
                 </state>
               </provider>
@@ -181,8 +181,8 @@
         <option value="$PROJECT_DIR$/js/TextManager.js" />
         <option value="$PROJECT_DIR$/js/SpriteMngr.js" />
         <option value="$PROJECT_DIR$/js/Effects.js" />
-        <option value="$PROJECT_DIR$/js/Corgi.js" />
         <option value="$PROJECT_DIR$/js/Sprite.js" />
+        <option value="$PROJECT_DIR$/js/Corgi.js" />
         <option value="$PROJECT_DIR$/js/Main.js" />
       </list>
     </option>
@@ -775,14 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/Corgi.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2112" max-vertical-offset="3105">
-          <caret line="183" column="0" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/boomboxm.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -804,10 +796,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/Corgi.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3120">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4401269" vertical-offset="1665" max-vertical-offset="3555">
-          <caret line="148" column="9" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.57176846" vertical-offset="2609" max-vertical-offset="3960">
+          <caret line="222" column="11" selection-start-line="222" selection-start-column="11" selection-end-line="222" selection-end-column="11" />
           <folding />
         </state>
       </provider>
