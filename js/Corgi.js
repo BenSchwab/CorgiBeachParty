@@ -187,6 +187,16 @@ Corgi.prototype.musicOff = function(){
     this.speed = 3;
     this.danceDig = false;
 };
+
+Corgi.prototype.startDangle = function(){
+    this.dangling = true;
+    this.speed = 0;
+};
+Corgi.prototype.endDangle = function(){
+    this.dangling = false;
+    this.speed = 3;
+};
+
 function lineDistance( point1, point2 )
 {
     var xs = 0;

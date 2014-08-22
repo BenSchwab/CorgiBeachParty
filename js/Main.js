@@ -208,7 +208,7 @@ function(){
 
     function onMouseUp(){
         if(dragCorgi){
-            dragCorgi.isDangling = false;
+            dragCorgi.endDangle();
         }
         dragCorgi = null;
     }
@@ -217,7 +217,7 @@ function(){
         corgiSet.forEach(function(corgi){
             if(corgi.contains(transformPoint(lastMouse))){
                 dragCorgi = corgi;
-                corgi.isDangling = true;
+                corgi.startDangle();
             }
 
         });
