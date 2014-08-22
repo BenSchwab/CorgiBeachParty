@@ -12,7 +12,6 @@ function DustCloud(x,y){
 }
 
 DustCloud.prototype.draw = function(ctx){
-    console.log("drawing dust" + this.x +' '+this.y + " "+this.drawable);
     this.duration --;
     if(this.duration<0){
         this.isDirty = true;

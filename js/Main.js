@@ -10,6 +10,8 @@ function(){
     // addTicker();
 
     var showingDialog = false;
+    var musicPlaying = false;
+    var audio;
 
     var corgiSet = [];
     window.canvas = document.getElementById("screen");
@@ -20,9 +22,11 @@ function(){
 	window.scene = new Scene();
     var controlCorgi = new Corgi("You?",200,600,7, ["I should join Coursera!"]);
     var paulCorgi = new Corgi("Paul",100,700, 5, ["What's all this fuss aboot?", "Eh?"]);
+
     var corgiTwo = new Corgi("Nelson", 400,500, 5, ["Caches","Protobuffs.", "There is a book named after me. It's called 'Do, Nelson dream of electric sheep?' "]);
     var corgiThree = new Corgi("Yixin", 200,500, 5, ["Cool.  Cool. ", "Yo"]);
-    var corgiFour = new Corgi("Parthi", 100,500, 5, ["Do I even work here?"]);
+    var corgiFour = new Corgi("Parthi", 100,500, 5, ["Do I even work on this team.?","hmmm...I don't trust interpreted languages.... or cereal."]);
+
     var corgiFive = new Corgi("Jingyu", 250,540, 5, ["Databases."]);
     var corgiSix = new Corgi("Ben", 50,500, 5, ["Thanks for a great summer!"]);
     var corgiSeven = new Corgi("Mustafa", 100,500, 5, ["What did I get myself into?"]);
@@ -37,7 +41,48 @@ function(){
     corgiNine, corgiTen);
     var boom = new Image();
     boom.src = "res/boombox.png";
-    SpriteManager.addSprite( new Sprite(boom, {x:800, y:550, width:70, height:70}));
+    var boomClick = function(point){
+        if(this.contains(point)){
+
+            if(!musicPlaying){
+                audio = new Audio('res/summer.mp3');
+                audio.play();
+                musicPlaying = true;
+                corgiSet.forEach(function(corgi){
+                    corgi.musicOn();
+                });
+                boombox.on = true;
+            }
+            else{
+                audio.pause();
+                musicPlaying = false;
+                corgiSet.forEach(function(corgi){
+                    corgi.musicOff();
+                });
+                boombox.on = false;
+            }
+
+
+
+        }
+        else{
+            console.log("didn't contain point");
+        }
+    };
+
+    var boombox = new Sprite(boom, 800, 550, 70, 70, boomClick);
+    var boomOn = new Image();
+    boomOn.src = "res/boomboxm.png";
+    boombox.onImage = boomOn;
+    boombox.draw = function(ctx){
+        if(boombox.on){
+            ctx.drawImage(this.onImage, this.x, this.y, this.getWidth(), this.getHeight());
+        }
+        else{
+            ctx.drawImage(this.image, this.x, this.y, this.getWidth(), this.getHeight());
+        }
+    };
+    SpriteManager.addSprite(boombox );
 
     // addBody(controlCorgi);
     // addGravity();
@@ -140,6 +185,7 @@ function(){
             }
 
         });
+        SpriteManager.onClick(transformPoint(e));
 
 
     }
@@ -158,8 +204,32 @@ function(){
     var lastMouse;
     function onMouseMove(e){
         lastMouse = e;
+        point = transformPoint(e);
+        if(dragCorgi){
+            dragCorgi.x = point.x;
+            dragCorgi.y = point.y;
+        }
 
     }
+
+    function onMouseUp(){
+        if(dragCorgi){
+            dragCorgi.endDangle();
+        }
+        dragCorgi = null;
+    }
+
+    function onMouseDown() {
+        corgiSet.forEach(function(corgi){
+            if(corgi.contains(transformPoint(lastMouse))){
+                dragCorgi = corgi;
+                corgi.startDangle();
+            }
+
+        });
+    }
+
+    var dragCorgi;
 
 	// ctx.rect(20,20,150,100);
 	// ctx.fillStyle="red";
@@ -172,6 +242,8 @@ function(){
     window.addEventListener('keydown', onKeyDown);
     window.addEventListener('click', onClick);
     window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mouseup', onMouseUp);
 
 
     Camera.move(paulCorgi, canvas);
