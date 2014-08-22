@@ -5,6 +5,7 @@ function(){
         return ((this%n)+n)%n;
     };
 
+    var world = Physics();
 
     var showingDialog = false;
 
