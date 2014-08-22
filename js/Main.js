@@ -18,7 +18,7 @@ function(){
     var controlCorgi = new Corgi("You?",200,600,7, ["I should join Coursera!"]);
     var paulCorgi = new Corgi("Paul",100,700, 5, ["What's all this fuss aboot?", "Eh?"]);
     var corgiTwo = new Corgi("Nelson", 400,500, 5, ["Caches","Protobuffs.", "There is a book named after me. It's called 'Do, Nelson dream of electric sheep?' "]);
-    var corgiThree = new Corgi("Yixin", 200,500, 5, ["Cool.  Cool.  "]);
+    var corgiThree = new Corgi("Yixin", 200,500, 5, ["Cool.  Cool. ", "Yo"]);
     var corgiFour = new Corgi("Parthi", 100,500, 5, ["Do I even work here?"]);
     var corgiFive = new Corgi("Jingyu", 250,540, 5, ["Databases."]);
     var corgiSix = new Corgi("Ben", 50,500, 5, ["Thanks for a great summer!"]);
@@ -98,6 +98,9 @@ function(){
         }
         if(e.keyCode == 68){
             controlCorgi.dig();
+        }
+        if(e.keyCode == 89){
+          controlCorgi.yo();
         }
         //space
         if(e.keyCode == 32){

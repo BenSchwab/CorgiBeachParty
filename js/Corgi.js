@@ -79,7 +79,10 @@ Corgi.prototype.draw = function(ctx){
     var sprite = this.spriteSet[this.direction][this.index];
     ctx.drawImage(sprite, this.x - Camera.x, this.y - Camera.y , this.getWidth(),this.getHeight());
 
-
+Corgi.prototype.yo = function(){
+  var aud = document.getElementById("yo"); 
+  aud.play();
+}
 
 
 };
@@ -182,6 +185,3 @@ function lineDistance( point1, point2 )
 
     return Math.sqrt( xs + ys );
 }
-
-
-
