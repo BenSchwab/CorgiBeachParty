@@ -17,6 +17,11 @@ var SpriteManager = (function(){
             }
 
 
+        },
+        onClick: function(point){
+            sprites.forEach(function(sprite){
+                sprite.onClick(point);
+            });
         }
 
 

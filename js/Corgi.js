@@ -28,6 +28,7 @@ function Corgi(name, x,y, speed, texts){
     this.spritesR[1].src = "res/corgir1.png";
     this.spritesR[2].src = "res/corgir2.png";
     this.speed = speed || 3;
+    this.danceDig = false;
 
 
 
@@ -55,10 +56,7 @@ Corgi.prototype.getBoundingRect = function(){
     return {top: this.y, left: this.x, width: this.getWidth(),
     height: this.getHeight()}
 }
-Corgi.prototype.contains = function(point){
-    return this.x<=point.x && this.x+this.getWidth()>=point.x &&
-        this.y<=point.y && this.y+this.getHeight()>=point.y ;
-};
+
 
 
 Corgi.prototype.getWidth = function(){
@@ -127,10 +125,17 @@ function changeSpriteIndex(){
 Corgi.prototype.moveCorgiX = function(amt){
    this.x += amt;
    this.x = Math.max(0, Math.min(this.x, canvas.width - this.getWidth()));
+    if(this.danceDig){
+        this.dig();
+    }
+
 };
 Corgi.prototype.moveCorgiY = function(amt){
     this.y += amt;
     this.y = Math.max(400, Math.min(this.y, canvas.height -this.getHeight()));
+    if(this.danceDig){
+        this.dig();
+    }
 };
 
 Corgi.prototype.getCentroid = function(){
@@ -172,6 +177,15 @@ Corgi.prototype.talk = function(){
     TextManager.setDialog(this.textFunction());
 };
 
+Corgi.prototype.musicOn = function(){
+    this.speed = 15;
+    this.danceDig = true;
+};
+
+Corgi.prototype.musicOff = function(){
+    this.speed = 3;
+    this.danceDig = false;
+};
 function lineDistance( point1, point2 )
 {
     var xs = 0;
